@@ -24,8 +24,7 @@ export default function ContainedButtons({
   const executeCode = () => {
     onLoading(true);
     setResult("");
-    console.log("executing code", code, inputVal);
-    fetch(`http://localhost:3001/${getRoute(language)}`, {
+    fetch(`https://64da573e202f270091b89ad0--warm-biscotti-76e1d8.netlify.app/${getRoute(language)}`, {
       method: "POST",
       body: JSON.stringify({ code, input: inputVal }),
       headers: { "Content-Type": "application/json" },
