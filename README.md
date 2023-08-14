@@ -1,5 +1,5 @@
-# Remote-Code-Executor
-RCE is a Remote Code Executor, as the name suggests Is a Docker-based sandbox environment to run a code snippet. It will create a new file for each code input, execute it, delete the file and return the output. It supports major languages, i.e., C++, JavaScript and Python, and can be extended to other language support too.
+# CodeVerse
+CodeVerse is a remote code executor,as the name suggests Is a Docker-based sandbox environment to run a code snippet. It will create a new file for each code input, execute it, delete the file and return the output. It supports major languages, i.e., C++, JavaScript and Python, and can be extended to other language support too.
 
 # Features:
 - Minimal UI for user interaction and code submission.
