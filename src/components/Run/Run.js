@@ -25,17 +25,13 @@ export default function ContainedButtons({
   const executeCode = async () => {
     onLoading(true);
     setResult("");
-    const res = await axios({
-      method: "post",
-      url: `https://codeverse-backend.netlify.app/${getRoute(language)}`,
-      data: {
+    const res = await axios.post(
+      `http://localhost:3001/${getRoute(language)}`,
+      {
         code,
         input: inputVal,
-      },
-      headers: {
-        'Access-Control-Allow-Origin': '*',
       }
-    });
+    )
     console.log(res);
     onLoading(false);
     if (res.data.output) setResult(res.data.output);
