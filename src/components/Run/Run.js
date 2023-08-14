@@ -25,7 +25,7 @@ export default function ContainedButtons({
   const executeCode = async () => {
     onLoading(true);
     setResult("");
-    const res = await axios.post(`https://warm-biscotti-76e1d8.netlify.app/${getRoute(language)}`, {
+    const res = await axios.post(`https://codeverse-backend.netlify.app/${getRoute(language)}`, {
       code,
       input: inputVal,
     },
