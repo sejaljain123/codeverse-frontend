@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,21 +22,18 @@ export default function ContainedButtons({
   onError,
 }) {
   const classes = useStyles();
-  const executeCode = () => {
+  const executeCode = async () => {
     onLoading(true);
     setResult("");
-    fetch(`https://warm-biscotti-76e1d8.netlify.app/${getRoute(language)}`, {
-      method: "POST",
-      body: JSON.stringify({ code, input: inputVal }),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        onLoading(false);
-        if (data.output) setResult(data.output);
-        else setResult(data.message);
-        onError(Boolean(data.isError) || !Boolean(data.output));
-      });
+    const res = await axios.post(`https://warm-biscotti-76e1d8.netlify.app/${getRoute(language)}`, {
+      code,
+      input: inputVal,
+    });
+    console.log(res);
+    onLoading(false);
+    if (res.data.output) setResult(res.data.output);
+    else setResult(res.data.message);
+    onError(Boolean(res.data.isError) || !Boolean(res.data.output));
   };
 
   return (

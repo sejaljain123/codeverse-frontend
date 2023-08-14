@@ -39,7 +39,6 @@ export default function LanguageSelector({ changeLanguage }) {
             value={value}
             onChange={handleChange}
             label="Language"
-            color="white"
             style={{ color: "white" }}
           >
             <MenuItem value={"cpp"}>CPP</MenuItem>
