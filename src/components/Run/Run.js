@@ -28,7 +28,13 @@ export default function ContainedButtons({
     const res = await axios.post(`https://warm-biscotti-76e1d8.netlify.app/${getRoute(language)}`, {
       code,
       input: inputVal,
-    });
+    },
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        }
+      }
+    );
     console.log(res);
     onLoading(false);
     if (res.data.output) setResult(res.data.output);
