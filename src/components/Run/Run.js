@@ -26,11 +26,11 @@ export default function ContainedButtons({
     onLoading(true);
     setResult("");
     const res = await axios.post(
-      `https://codeverse-backend.netlify.app/${getRoute(language)}`,
+      `https://codeverse-backend-b1842520734d.herokuapp.com/${getRoute(language)}`,
       {
         code,
         input: inputVal,
-      }
+      },
     )
     console.log(res);
     onLoading(false);
